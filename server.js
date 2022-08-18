@@ -3,7 +3,8 @@ const path = require("path");
 const { clog } = require("./middleware/clog");
 const api = require("./routes/index.js");
 
-const PORT = process.env.PORT || 3001;
+// const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
 const app = express();
 
@@ -23,8 +24,8 @@ app.get("/", (req, res) =>
 );
 
 // GET Route for note page
-app.get("/feedback", (req, res) =>
-  res.sendFile(path.join(__dirname, "/public/note.html"))
+app.get("/notes", (req, res) =>
+  res.sendFile(path.join(__dirname, "/public/notes.html"))
 );
 
 // Wildcard route to direct users to homepage
