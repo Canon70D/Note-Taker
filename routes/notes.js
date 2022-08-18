@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require("uuid");
 const {
   readFromFile,
   readAndAppend,
-  writeToFile,
+  deleteFromFile,
 } = require("../helpers/fsUtils");
 
 // GET Route for retrieving all the notes
@@ -22,7 +22,7 @@ notes.post("/", (req, res) => {
       title,
       text,
       //creat an id a note
-      noteId: uuidv4(),
+      id: uuidv4(),
     };
 
     readAndAppend(newNote, "./db/db.json");
@@ -31,6 +31,13 @@ notes.post("/", (req, res) => {
   } else {
     res.error("Error in adding note");
   }
+});
+
+//delete seleted note
+notes.delete("/:id", (req, res) => {
+  deleteFromFile(req.params.id, "./db/db.json");
+
+  res.json(`Note deleted successfully 🚀`);
 });
 
 module.exports = notes;
