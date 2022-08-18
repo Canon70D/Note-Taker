@@ -1,3 +1,5 @@
+//use code from class activity mini project with added function
+
 const fs = require("fs");
 const util = require("util");
 

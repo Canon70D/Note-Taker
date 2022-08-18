@@ -1,10 +1,12 @@
+//use code from class activity mini project with alteration
+
 const express = require("express");
 const path = require("path");
 const { clog } = require("./middleware/clog");
 const api = require("./routes/index.js");
 
-// const PORT = process.env.PORT || 3001;
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
+//const PORT = 3001;
 
 const app = express();
 
@@ -23,7 +25,7 @@ app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
 
-// GET Route for note page
+// GET Route for notes page
 app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/notes.html"))
 );
@@ -33,6 +35,4 @@ app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "public/index.html"))
 );
 
-app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
-);
+app.listen(PORT, () => console.log(`App listening on port ${PORT} 🚀`));

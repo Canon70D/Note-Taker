@@ -13,8 +13,6 @@ notes.get("/", (req, res) => {
 
 // POST Route for a new note
 notes.post("/", (req, res) => {
-  //console.log(req.body);
-
   const { title, text } = req.body;
 
   if (req.body) {
@@ -33,7 +31,7 @@ notes.post("/", (req, res) => {
   }
 });
 
-//delete seleted note
+//Delete seleted note
 notes.delete("/:id", (req, res) => {
   deleteFromFile(req.params.id, "./db/db.json");
 
